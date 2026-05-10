@@ -1,0 +1,3009 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Kotha Khali Chha !?</title>
+<meta name="description" content="Find your perfect room in Kathmandu Valley">
+<meta name="theme-color" content="#0a0e27">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ========== CSS CUSTOM PROPERTIES ========== */
+:root {
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Poppins', sans-serif;
+  --font-nepali: 'Noto Sans Devanagari', sans-serif;
+  --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --radius: 14px;
+  --radius-sm: 8px;
+  --shadow: 0 8px 32px rgba(0,0,0,0.2);
+  --shadow-sm: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+[data-theme="dark"] {
+  --bg-primary: #0a0e27;
+  --bg-secondary: #111538;
+  --bg-card: #161a3e;
+  --bg-input: #1c2148;
+  --bg-hover: #1e2350;
+  --accent: #f0c75e;
+  --accent-glow: rgba(240, 199, 94, 0.25);
+  --accent-secondary: #6c5ce7;
+  --text-primary: #eee8ff;
+  --text-secondary: #a0a4c4;
+  --text-muted: #6b6f94;
+  --border: rgba(255,255,255,0.06);
+  --success: #00b894;
+  --danger: #e17055;
+  --info: #74b9ff;
+  --gradient-hero: linear-gradient(135deg, #0a0e27 0%, #1a0a3e 50%, #0d1b3e 100%);
+  --gradient-accent: linear-gradient(135deg, #f0c75e 0%, #e8a838 100%);
+  --gradient-card: linear-gradient(145deg, #161a3e 0%, #1a1e48 100%);
+  --overlay: rgba(10, 14, 39, 0.85);
+}
+
+[data-theme="light"] {
+  --bg-primary: #f5f3ef;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-input: #f0eee8;
+  --bg-hover: #eae7e0;
+  --accent: #b8860b;
+  --accent-glow: rgba(184, 134, 11, 0.15);
+  --accent-secondary: #5b4cdb;
+  --text-primary: #1a1a2e;
+  --text-secondary: #555577;
+  --text-muted: #8888aa;
+  --border: rgba(0,0,0,0.08);
+  --success: #00a884;
+  --danger: #d63031;
+  --info: #0984e3;
+  --gradient-hero: linear-gradient(135deg, #f5f3ef 0%, #ece8df 50%, #f0ece4 100%);
+  --gradient-accent: linear-gradient(135deg, #b8860b 0%, #d4a03c 100%);
+  --gradient-card: linear-gradient(145deg, #ffffff 0%, #faf8f5 100%);
+  --overlay: rgba(245, 243, 239, 0.9);
+}
+
+/* ========== RESET & BASE ========== */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  transition: background var(--transition), color var(--transition);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+img { max-width:100%; display:block; }
+button { font-family: var(--font-body); cursor: pointer; border: none; outline: none; }
+input, select, textarea {
+  font-family: var(--font-body);
+  border: none; outline: none;
+  background: var(--bg-input);
+  color: var(--text-primary);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  width: 100%;
+  transition: all var(--transition);
+  border: 1.5px solid var(--border);
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+textarea { resize: vertical; min-height: 100px; }
+select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--text-muted); border-radius: 4px; }
+
+/* ========== UTILITY CLASSES ========== */
+.hidden { display: none !important; }
+.screen { display: none; min-height: 100vh; min-height: 100dvh; }
+.screen.active { display: flex; flex-direction: column; }
+.container { width: 100%; max-width: 480px; margin: 0 auto; padding: 0 20px; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 14px 28px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary {
+  background: var(--gradient-accent);
+  color: #0a0e27;
+  box-shadow: 0 4px 20px var(--accent-glow);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 28px var(--accent-glow); }
+.btn-primary:active { transform: translateY(0); }
+.btn-secondary {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1.5px solid var(--border);
+}
+.btn-secondary:hover { border-color: var(--accent); background: var(--bg-hover); }
+.btn-outline {
+  background: transparent;
+  color: var(--accent);
+  border: 1.5px solid var(--accent);
+}
+.btn-outline:hover { background: var(--accent); color: #0a0e27; }
+.btn-danger { background: var(--danger); color: #fff; }
+.btn-sm { padding: 8px 16px; font-size: 0.82rem; border-radius: var(--radius-sm); }
+.btn-full { width: 100%; }
+.btn-icon {
+  width: 44px; height: 44px; padding: 0;
+  border-radius: 50%;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+}
+.btn-icon:hover { border-color: var(--accent); color: var(--accent); }
+.badge {
+  display: inline-flex; align-items: center;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.badge-success { background: rgba(0,184,148,0.15); color: var(--success); }
+.badge-danger { background: rgba(225,112,85,0.15); color: var(--danger); }
+.badge-info { background: rgba(116,185,255,0.15); color: var(--info); }
+.badge-accent { background: var(--accent-glow); color: var(--accent); }
+.section-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+.divider { height: 1px; background: var(--border); margin: 20px 0; }
+.card {
+  background: var(--gradient-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  transition: all var(--transition);
+}
+.card:hover { border-color: rgba(240,199,94,0.2); }
+.form-group { margin-bottom: 16px; }
+.form-group label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.form-row { display: flex; gap: 12px; }
+.form-row > * { flex: 1; }
+.chip-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.chip {
+  padding: 8px 16px;
+  border-radius: 24px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  background: var(--bg-input);
+  color: var(--text-secondary);
+  border: 1.5px solid var(--border);
+  cursor: pointer;
+  transition: all var(--transition);
+  user-select: none;
+}
+.chip.selected {
+  background: var(--accent-glow);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.chip:hover { border-color: var(--accent); }
+.toggle {
+  position: relative; width: 48px; height: 26px;
+  background: var(--bg-input);
+  border-radius: 13px;
+  cursor: pointer;
+  border: 1.5px solid var(--border);
+  transition: all var(--transition);
+  flex-shrink: 0;
+}
+.toggle.active { background: var(--accent); border-color: var(--accent); }
+.toggle::after {
+  content: '';
+  position: absolute;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  top: 2px; left: 2px;
+  transition: all var(--transition);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.toggle.active::after { left: 24px; }
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-muted);
+}
+.empty-state .empty-icon { font-size: 3rem; margin-bottom: 16px; opacity: 0.5; }
+.empty-state h3 { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 8px; }
+
+/* ========== SPLASH SCREEN ========== */
+#splash {
+  background: var(--gradient-hero);
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  overflow: hidden;
+}
+.splash-bg-pattern {
+  position: absolute; inset: 0;
+  opacity: 0.03;
+  background-image: repeating-conic-gradient(var(--accent) 0% 25%, transparent 0% 50%);
+  background-size: 60px 60px;
+  animation: patternSpin 120s linear infinite;
+}
+@keyframes patternSpin { to { transform: rotate(360deg); } }
+.splash-content {
+  text-align: center;
+  z-index: 1;
+  padding: 20px;
+}
+.splash-logo-mark {
+  width: 80px; height: 80px;
+  margin: 0 auto 30px;
+  background: var(--gradient-accent);
+  border-radius: 20px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem;
+  animation: logoReveal 0.8s ease-out;
+  box-shadow: 0 8px 40px var(--accent-glow);
+}
+@keyframes logoReveal {
+  from { opacity: 0; transform: scale(0.5) rotate(-20deg); }
+  to { opacity: 1; transform: scale(1) rotate(0); }
+}
+.splash-title {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, var(--accent) 0%, #fff 50%, var(--accent) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s ease-in-out infinite, titleReveal 0.8s ease-out 0.3s both;
+}
+@keyframes shimmer { 0%,100%{background-position:0% center} 50%{background-position:200% center} }
+@keyframes titleReveal { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+.splash-nepali {
+  font-family: var(--font-nepali);
+  font-size: 1.1rem;
+  color: var(--accent);
+  margin-bottom: 30px;
+  animation: titleReveal 0.8s ease-out 0.5s both;
+}
+.splash-roles {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 300px;
+  margin: 0 auto 30px;
+  animation: titleReveal 0.8s ease-out 0.7s both;
+}
+.splash-role {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+.splash-role em { color: var(--accent); font-style: normal; font-weight: 600; }
+.splash-cta {
+  animation: titleReveal 0.8s ease-out 0.9s both;
+}
+.splash-skip {
+  margin-top: 16px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  animation: titleReveal 0.8s ease-out 1.1s both;
+}
+.splash-skip:hover { color: var(--accent); }
+.splash-version {
+  position: absolute;
+  bottom: 20px;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* ========== AUTH SCREEN ========== */
+#auth {
+  background: var(--bg-primary);
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  background: var(--gradient-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 36px 28px;
+  box-shadow: var(--shadow);
+}
+.auth-card h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 6px;
+}
+.auth-card .subtitle {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-bottom: 28px;
+}
+.role-selector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.role-option {
+  padding: 20px 16px;
+  background: var(--bg-input);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.role-option:hover { border-color: var(--accent); }
+.role-option.selected {
+  border-color: var(--accent);
+  background: var(--accent-glow);
+}
+.role-option .role-icon { font-size: 2rem; margin-bottom: 8px; }
+.role-option .role-name { font-weight: 600; font-size: 0.9rem; }
+.role-option .role-desc { font-size: 0.72rem; color: var(--text-muted); margin-top: 4px; }
+.auth-method-toggle {
+  display: flex;
+  background: var(--bg-input);
+  border-radius: var(--radius-sm);
+  padding: 3px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border);
+}
+.auth-method-toggle button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  background: transparent;
+  color: var(--text-muted);
+  transition: all var(--transition);
+}
+.auth-method-toggle button.active {
+  background: var(--accent);
+  color: #0a0e27;
+}
+.otp-section { text-align: center; }
+.otp-section h3 { font-size: 1.1rem; margin-bottom: 6px; }
+.otp-section p { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 20px; }
+.otp-inputs {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.otp-inputs input {
+  width: 48px; height: 56px;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  padding: 0;
+}
+.otp-timer {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+.otp-timer span { color: var(--accent); font-weight: 600; }
+.resend-btn {
+  background: none;
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-decoration: underline;
+}
+.resend-btn:disabled { color: var(--text-muted); cursor: not-allowed; text-decoration: none; }
+
+/* ========== MAIN APP SHELL ========== */
+#app { display: none; }
+#app.active { display: flex; flex-direction: column; min-height: 100vh; }
+
+/* Top Bar */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(20px);
+}
+.top-bar-left { display: flex; align-items: center; gap: 10px; }
+.top-bar-logo {
+  width: 36px; height: 36px;
+  background: var(--gradient-accent);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.top-bar-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+.top-bar-right { display: flex; align-items: center; gap: 8px; }
+.notification-btn { position: relative; }
+.notification-dot {
+  position: absolute;
+  width: 8px; height: 8px;
+  background: var(--danger);
+  border-radius: 50%;
+  top: 8px; right: 8px;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+/* Main Content Area */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  padding-bottom: 100px;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 0 max(8px, env(safe-area-inset-bottom));
+  z-index: 100;
+  backdrop-filter: blur(20px);
+}
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 16px;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.65rem;
+  font-weight: 500;
+  transition: all var(--transition);
+  cursor: pointer;
+  border: none;
+}
+.nav-item .nav-icon { font-size: 1.3rem; }
+.nav-item.active { color: var(--accent); }
+.nav-item:hover { color: var(--accent); }
+
+/* ========== DASHBOARD ========== */
+.dash-greeting {
+  margin-bottom: 24px;
+}
+.dash-greeting .greeting-text {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.dash-greeting .greeting-name {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-top: 4px;
+}
+.dash-greeting .greeting-name span { color: var(--accent); }
+
+/* Quick Stats */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.stat-card {
+  background: var(--gradient-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  text-align: center;
+}
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+.stat-label {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+
+/* Action Cards */
+.action-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.action-card {
+  background: var(--gradient-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 16px;
+  cursor: pointer;
+  transition: all var(--transition);
+  text-align: center;
+}
+.action-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px var(--accent-glow);
+}
+.action-card .action-icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+.action-card .action-title {
+  font-weight: 600;
+  font-size: 0.88rem;
+  margin-bottom: 4px;
+}
+.action-card .action-desc {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* Property Cards */
+.property-card {
+  background: var(--gradient-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 16px;
+  transition: all var(--transition);
+  cursor: pointer;
+}
+.property-card:hover { border-color: rgba(240,199,94,0.3); }
+.property-img {
+  height: 180px;
+  background: var(--bg-input);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 3rem;
+}
+.property-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.property-status-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+.property-type-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+}
+.property-info {
+  padding: 16px;
+}
+.property-info h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.property-location {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.property-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.property-price {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.property-price small {
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+.property-facilities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+.property-facilities .badge {
+  font-size: 0.65rem;
+  padding: 3px 8px;
+}
+
+/* ========== SEARCH & FILTERS ========== */
+.search-bar {
+  position: relative;
+  margin-bottom: 16px;
+}
+.search-bar input {
+  padding-left: 44px;
+  height: 48px;
+}
+.search-bar .search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+}
+.filter-chips {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+  -webkit-overflow-scrolling: touch;
+}
+.filter-chips::-webkit-scrollbar { display: none; }
+
+/* ========== ADD PROPERTY FORM ========== */
+.image-upload-area {
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 30px;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition);
+  margin-bottom: 12px;
+}
+.image-upload-area:hover { border-color: var(--accent); }
+.image-upload-area .upload-icon { font-size: 2rem; margin-bottom: 8px; color: var(--text-muted); }
+.image-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.image-preview-item {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+.image-preview-item img { width:100%; height:100%; object-fit:cover; }
+.image-preview-item .remove-img {
+  position: absolute;
+  top: 4px; right: 4px;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+
+/* ========== MESSAGES ========== */
+.msg-list { display: flex; flex-direction: column; gap: 2px; }
+.msg-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.msg-item:hover { background: var(--bg-hover); }
+.msg-item.unread { background: var(--accent-glow); }
+.msg-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--accent-glow);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.msg-content { flex: 1; min-width: 0; }
+.msg-content .msg-name { font-weight: 600; font-size: 0.9rem; }
+.msg-content .msg-preview {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.msg-time { font-size: 0.7rem; color: var(--text-muted); flex-shrink: 0; }
+
+/* Chat View */
+.chat-view { display: flex; flex-direction: column; height: 100vh; }
+.chat-header {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 16px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+}
+.chat-header .back-btn { background: none; color: var(--text-primary); font-size: 1.2rem; padding: 4px; }
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.chat-bubble {
+  max-width: 80%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  word-break: break-word;
+}
+.chat-bubble.sent {
+  align-self: flex-end;
+  background: var(--accent);
+  color: #0a0e27;
+  border-bottom-right-radius: 4px;
+}
+.chat-bubble.received {
+  align-self: flex-start;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-bottom-left-radius: 4px;
+}
+.chat-bubble .bubble-time {
+  font-size: 0.65rem;
+  opacity: 0.6;
+  margin-top: 4px;
+  text-align: right;
+}
+.chat-input-area {
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+}
+.chat-input-area input { flex: 1; }
+.chat-input-area button { flex-shrink: 0; }
+
+/* ========== SETTINGS ========== */
+.settings-group {
+  margin-bottom: 24px;
+}
+.settings-group-title {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  padding-left: 4px;
+}
+.settings-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 4px;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.settings-item:first-child { border-radius: var(--radius-sm) var(--radius-sm) 0 0; }
+.settings-item:last-child { border-radius: 0 0 var(--radius-sm) var(--radius-sm); margin-bottom: 0; }
+.settings-item:only-child { border-radius: var(--radius-sm); }
+.settings-item:hover { background: var(--bg-hover); }
+.settings-item-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.settings-item-left .set-icon {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  background: var(--accent-glow);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+}
+.settings-item-left .set-text .set-title { font-size: 0.9rem; font-weight: 500; }
+.settings-item-left .set-text .set-desc { font-size: 0.72rem; color: var(--text-muted); }
+.settings-item-right { color: var(--text-muted); font-size: 0.85rem; }
+
+/* Developer Panel */
+.dev-panel {
+  background: linear-gradient(135deg, rgba(108,92,231,0.1), rgba(240,199,94,0.1));
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.dev-panel h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.dev-badge {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  background: var(--accent);
+  color: #0a0e27;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  z-index: 999;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Donation Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition);
+}
+.modal-overlay.active { opacity: 1; visibility: visible; }
+.modal {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 28px;
+  max-width: 380px;
+  width: 100%;
+  transform: scale(0.9) translateY(20px);
+  transition: all var(--transition);
+}
+.modal-overlay.active .modal { transform: scale(1) translateY(0); }
+.modal h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 8px;
+}
+.modal p { text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 20px; }
+.modal-actions { display: flex; gap: 10px; }
+.modal-actions .btn { flex: 1; }
+.donation-info {
+  text-align: center;
+  margin-top: 16px;
+}
+.donation-info .qr-placeholder {
+  width: 160px; height: 160px;
+  margin: 12px auto;
+  background: var(--bg-input);
+  border-radius: var(--radius);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  border: 2px dashed var(--border);
+}
+
+/* Rating Stars */
+.rating-stars {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin: 16px 0;
+}
+.rating-stars .star {
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: var(--text-muted);
+}
+.rating-stars .star.active { color: var(--accent); transform: scale(1.1); }
+
+/* Toast */
+.toast-container {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+}
+.toast {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 20px;
+  font-size: 0.85rem;
+  box-shadow: var(--shadow);
+  animation: toastIn 0.3s ease, toastOut 0.3s ease 2.7s forwards;
+  pointer-events: auto;
+  white-space: nowrap;
+}
+@keyframes toastIn { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
+@keyframes toastOut { to{opacity:0;transform:translateY(-20px)} }
+.toast.success { border-left: 3px solid var(--success); }
+.toast.error { border-left: 3px solid var(--danger); }
+.toast.info { border-left: 3px solid var(--info); }
+
+/* ========== PROPERTY DETAIL VIEW ========== */
+.detail-header {
+  position: relative;
+  height: 220px;
+  background: var(--bg-input);
+  overflow: hidden;
+}
+.detail-header img { width:100%; height:100%; object-fit:cover; }
+.detail-back {
+  position: absolute;
+  top: 12px; left: 12px;
+}
+.detail-body { padding: 20px; }
+.detail-title { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; margin-bottom: 4px; }
+.detail-price { font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; color: var(--accent); margin: 12px 0; }
+.detail-section { margin-top: 20px; }
+.detail-section h4 { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+.detail-desc { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; }
+.detail-contact { margin-top: 24px; display: flex; gap: 10px; }
+
+/* ========== RESPONSIVE ========== */
+@media (min-width: 600px) {
+  .container { max-width: 560px; }
+  .action-grid { grid-template-columns: repeat(4, 1fr); }
+  .stats-row { grid-template-columns: repeat(3, 1fr); }
+  .property-card { display: flex; flex-direction: row; }
+  .property-img { width: 200px; height: auto; min-height: 160px; }
+}
+@media (min-width: 900px) {
+  .container { max-width: 800px; }
+}
+
+/* ========== LOADING SPINNER ========== */
+.spinner {
+  width: 36px; height: 36px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 20px auto;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Page transitions */
+.page-enter { animation: pageIn 0.3s ease; }
+@keyframes pageIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+
+/* Animate on scroll */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<!-- ========== TOAST CONTAINER ========== -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- ========== MODAL OVERLAY ========== -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modalContent"></div>
+</div>
+
+<!-- ========== SPLASH SCREEN ========== -->
+<div class="screen active" id="splash">
+  <div class="splash-bg-pattern"></div>
+  <div class="splash-content">
+    <div class="splash-logo-mark">&#127968;</div>
+    <h1 class="splash-title">Kotha Khali Chha !?</h1>
+    <p class="splash-nepali">कोठा खाली छ !?</p>
+    <div class="splash-roles">
+      <div class="splash-role">
+        &#128100; <span>Landlord (Gharbeti):</span> <em>"Kotha Khali Chha!"</em>
+      </div>
+      <div class="splash-role">
+        &#128100; <span>Tenant (Kirayadar):</span> <em>"Kotha Khali Chha?"</em>
+      </div>
+    </div>
+    <div class="splash-cta">
+      <button class="btn btn-primary btn-full" onclick="showScreen('auth')">
+        Get Started &#10132;
+      </button>
+    </div>
+    <p class="splash-skip" onclick="showScreen('auth')">Skip intro</p>
+  </div>
+  <p class="splash-version">v1.0 &middot; Kathmandu Valley</p>
+</div>
+
+<!-- ========== AUTH SCREEN ========== -->
+<div class="screen" id="auth">
+  <div class="auth-card" id="authCard">
+    <!-- Step 1: Role Selection -->
+    <div id="authStep1">
+      <h2>Welcome</h2>
+      <p class="subtitle">Choose your role to continue</p>
+      <div class="role-selector">
+        <div class="role-option" data-role="landlord" onclick="selectRole(this)">
+          <div class="role-icon">&#127970;</div>
+          <div class="role-name">Gharbeti</div>
+          <div class="role-desc">Landlord</div>
+        </div>
+        <div class="role-option" data-role="tenant" onclick="selectRole(this)">
+          <div class="role-icon">&#128716;</div>
+          <div class="role-name">Kirayadar</div>
+          <div class="role-desc">Tenant</div>
+        </div>
+      </div>
+      <div class="auth-method-toggle">
+        <button class="active" onclick="toggleAuthMethod('phone', this)">Phone</button>
+        <button onclick="toggleAuthMethod('email', this)">Email</button>
+      </div>
+      <div id="phoneInput">
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" id="authPhone" placeholder="98XXXXXXXX" maxlength="10">
+        </div>
+      </div>
+      <div id="emailInput" class="hidden">
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" id="authEmail" placeholder="your@email.com">
+        </div>
+      </div>
+      <button class="btn btn-primary btn-full" onclick="requestOTP()" id="otpRequestBtn">
+        Send OTP
+      </button>
+    </div>
+
+    <!-- Step 2: OTP Verification -->
+    <div id="authStep2" class="hidden otp-section">
+      <h3>Verify OTP</h3>
+      <p id="otpMessage">Enter the 6-digit code sent to your number</p>
+      <div class="otp-inputs">
+        <input type="text" maxlength="1" class="otp-digit" oninput="otpMove(this, 0)" onkeydown="otpKey(event, 0)">
+        <input type="text" maxlength="1" class="otp-digit" oninput="otpMove(this, 1)" onkeydown="otpKey(event, 1)">
+        <input type="text" maxlength="1" class="otp-digit" oninput="otpMove(this, 2)" onkeydown="otpKey(event, 2)">
+        <input type="text" maxlength="1" class="otp-digit" oninput="otpMove(this, 3)" onkeydown="otpKey(event, 3)">
+        <input type="text" maxlength="1" class="otp-digit" oninput="otpMove(this, 4)" onkeydown="otpKey(event, 4)">
+        <input type="text" maxlength="1" class="otp-digit" oninput="otpMove(this, 5)" onkeydown="otpKey(event, 5)">
+      </div>
+      <p class="otp-timer">Resend OTP in <span id="otpCountdown">30</span>s</p>
+      <button class="resend-btn" id="resendBtn" disabled onclick="requestOTP()">Resend OTP</button>
+      <div style="margin-top:20px;">
+        <button class="btn btn-primary btn-full" onclick="verifyOTP()">Verify &amp; Sign In</button>
+      </div>
+      <p style="margin-top:12px;font-size:0.75rem;color:var(--text-muted)">
+        Demo: Enter any 6 digits to verify
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ========== MAIN APP ========== -->
+<div id="app">
+  <!-- Developer Badge -->
+  <div class="dev-badge hidden" id="devBadge">DEV MODE</div>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <div class="top-bar-logo">&#127968;</div>
+      <span class="top-bar-title">Kotha Khali Chha</span>
+    </div>
+    <div class="top-bar-right">
+      <button class="btn-icon notification-btn" onclick="showNotifications()">
+        &#128276;
+        <div class="notification-dot hidden" id="notifDot"></div>
+      </button>
+      <button class="btn-icon" onclick="navigateTo('settings')">&#9881;</button>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content" id="mainContent"></div>
+
+  <!-- Bottom Navigation -->
+  <div class="bottom-nav" id="bottomNav"></div>
+</div>
+
+<script>
+// ============================================================
+// STATE MANAGEMENT
+// ============================================================
+const APP = {
+  screens: {},
+  currentNav: 'dashboard',
+  user: null,
+  role: null,
+  authMethod: 'phone',
+  generatedOTP: null,
+  otpTimer: null,
+  properties: [],
+  messages: [],
+  notifications: [],
+  devPhone: '9800000000',
+  devEmail: 'developer@kothakhali.com',
+  users: []
+};
+
+// Load data from localStorage
+function loadData() {
+  try {
+    const saved = localStorage.getItem('kkc_data');
+    if (saved) {
+      const d = JSON.parse(saved);
+      APP.properties = d.properties || [];
+      APP.messages = d.messages || [];
+      APP.users = d.users || [];
+      APP.notifications = d.notifications || [];
+    }
+  } catch(e) { console.log('Load error:', e); }
+  if (APP.properties.length === 0) seedSampleData();
+}
+
+function saveData() {
+  try {
+    localStorage.setItem('kkc_data', JSON.stringify({
+      properties: APP.properties,
+      messages: APP.messages,
+      users: APP.users,
+      notifications: APP.notifications
+    }));
+  } catch(e) { console.log('Save error:', e); }
+}
+
+function seedSampleData() {
+  const sampleProps = [
+    {
+      id: 'p1', landlordId: 'u_sample1', type: 'room', count: 2,
+      rent: 8000, negotiable: true,
+      facilities: ['Peaceful Environment', '24hr Water', 'WiFi Available'],
+      images: [], district: 'Kathmandu', location: 'Baneshwor, near BICC',
+      description: 'Spacious rooms available in a peaceful residential area. Close to public transport, shops, and restaurants. Ideal for students and working professionals. The building has 24-hour water supply and backup electricity.',
+      contact: '9841000001', status: 'available',
+      createdAt: Date.now() - 86400000, rating: 4.5, name: 'Sita Ghar'
+    },
+    {
+      id: 'p2', landlordId: 'u_sample2', type: 'flat', count: 1,
+      rent: 25000, negotiable: false,
+      facilities: ['Parking', '24hr Water', 'Security Guard', 'Lift'],
+      images: [], district: 'Lalitpur', location: 'Jawalakhel, near Zoo',
+      description: 'Beautiful 2BHK flat on the 3rd floor with balcony view. Fully ventilated with natural sunlight. Near Jawalakhel bus stop. Suitable for small families.',
+      contact: '9841000002', status: 'available',
+      createdAt: Date.now() - 172800000, rating: 5, name: 'Shanti Niwas'
+    },
+    {
+      id: 'p3', landlordId: 'u_sample3', type: 'office', count: 1,
+      rent: 35000, negotiable: true,
+      facilities: ['Parking', 'WiFi Available', '24hr Water', 'Generator'],
+      images: [], district: 'Kathmandu', location: 'Thamel, Main Road',
+      description: 'Prime commercial office space in the heart of Thamel. Perfect for travel agencies, IT companies, or consultancy firms. High foot traffic area with excellent visibility.',
+      contact: '9841000003', status: 'rented',
+      createdAt: Date.now() - 259200000, rating: 4, name: 'Thamel Tower'
+    },
+    {
+      id: 'p4', landlordId: 'u_sample1', type: 'building', count: 1,
+      rent: 80000, negotiable: true,
+      facilities: ['Parking', '24hr Water', 'Peaceful Environment', 'Garden'],
+      images: [], district: 'Bhaktapur', location: 'Suryabinayak, main road',
+      description: 'Complete building available for rent with garden area and parking space. 3 floors with multiple rooms. Great for hostel, school, or large family. Peaceful neighborhood.',
+      contact: '9841000001', status: 'available',
+      createdAt: Date.now() - 345600000, rating: 4.2, name: 'Suryabinayak Bhawan'
+    }
+  ];
+  APP.properties = sampleProps;
+  saveData();
+}
+
+// ============================================================
+// UTILITY FUNCTIONS
+// ============================================================
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  const el = document.getElementById(id);
+  if (el) el.classList.add('active');
+  if (id === 'auth') {
+    document.getElementById('authStep1').classList.remove('hidden');
+    document.getElementById('authStep2').classList.add('hidden');
+  }
+}
+
+function showToast(msg, type='info') {
+  const c = document.getElementById('toastContainer');
+  const t = document.createElement('div');
+  t.className = 'toast ' + type;
+  t.textContent = msg;
+  c.appendChild(t);
+  setTimeout(() => t.remove(), 3200);
+}
+
+function showModal(content) {
+  const o = document.getElementById('modalOverlay');
+  const m = document.getElementById('modalContent');
+  m.innerHTML = content;
+  o.classList.add('active');
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('active');
+}
+
+document.getElementById('modalOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+function genId() { return 'id_' + Date.now() + '_' + Math.random().toString(36).substr(2,6); }
+
+function timeAgo(ts) {
+  const diff = Date.now() - ts;
+  if (diff < 60000) return 'just now';
+  if (diff < 3600000) return Math.floor(diff/60000) + 'm ago';
+  if (diff < 86400000) return Math.floor(diff/3600000) + 'h ago';
+  return Math.floor(diff/86400000) + 'd ago';
+}
+
+function formatNPR(n) { return 'NPR ' + Number(n).toLocaleString(); }
+
+function isDev() {
+  return APP.user && (
+    APP.user.phone === APP.devPhone || APP.user.email === APP.devEmail
+  );
+}
+
+// ============================================================
+// AUTH: ROLE SELECTION
+// ============================================================
+function selectRole(el) {
+  document.querySelectorAll('.role-option').forEach(r => r.classList.remove('selected'));
+  el.classList.add('selected');
+  APP.role = el.dataset.role;
+}
+
+function toggleAuthMethod(method, btn) {
+  APP.authMethod = method;
+  btn.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('phoneInput').classList.toggle('hidden', method !== 'phone');
+  document.getElementById('emailInput').classList.toggle('hidden', method !== 'email');
+}
+
+// ============================================================
+// AUTH: OTP
+// ============================================================
+function requestOTP() {
+  if (!APP.role) { showToast('Please select a role first', 'error'); return; }
+  if (APP.authMethod === 'phone') {
+    const phone = document.getElementById('authPhone').value.trim();
+    if (phone.length < 10) { showToast('Enter a valid phone number', 'error'); return; }
+    APP.generatedOTP = '123456';
+    document.getElementById('otpMessage').textContent = 'OTP sent to ' + phone;
+  } else {
+    const email = document.getElementById('authEmail').value.trim();
+    if (!email.includes('@')) { showToast('Enter a valid email', 'error'); return; }
+    APP.generatedOTP = '123456';
+    document.getElementById('otpMessage').textContent = 'OTP sent to ' + email;
+  }
+  document.getElementById('authStep1').classList.add('hidden');
+  document.getElementById('authStep2').classList.remove('hidden');
+  startOTPCountdown();
+  document.querySelectorAll('.otp-digit')[0].focus();
+  showToast('OTP sent! (Demo: use any 6 digits)', 'success');
+}
+
+function startOTPCountdown() {
+  let s = 30;
+  const el = document.getElementById('otpCountdown');
+  const btn = document.getElementById('resendBtn');
+  btn.disabled = true;
+  clearInterval(APP.otpTimer);
+  APP.otpTimer = setInterval(() => {
+    s--;
+    el.textContent = s;
+    if (s <= 0) {
+      clearInterval(APP.otpTimer);
+      btn.disabled = false;
+      el.textContent = '0';
+    }
+  }, 1000);
+}
+
+function otpMove(input, idx) {
+  const digits = document.querySelectorAll('.otp-digit');
+  if (input.value && idx < 5) digits[idx+1].focus();
+}
+
+function otpKey(e, idx) {
+  const digits = document.querySelectorAll('.otp-digit');
+  if (e.key === 'Backspace' && !digits[idx].value && idx > 0) digits[idx-1].focus();
+}
+
+function verifyOTP() {
+  const digits = document.querySelectorAll('.otp-digit');
+  let code = '';
+  digits.forEach(d => code += d.value);
+  if (code.length < 6) { showToast('Enter all 6 digits', 'error'); return; }
+  // Accept any 6 digits in demo mode
+  loginSuccess();
+}
+
+function loginSuccess() {
+  const phone = document.getElementById('authPhone').value.trim() || APP.devPhone;
+  const email = document.getElementById('authEmail').value.trim() || APP.devEmail;
+  
+  // Check for developer
+  let role = APP.role;
+  if (phone === APP.devPhone || email === APP.devEmail) {
+    role = 'developer';
+  }
+  
+  const userId = genId();
+  APP.user = {
+    id: userId,
+    name: role === 'developer' ? 'Developer' : (role === 'landlord' ? 'Gharbeti' : 'Kirayadar'),
+    phone: phone,
+    email: email,
+    role: role
+  };
+  
+  // Save user
+  const existing = APP.users.find(u => u.phone === phone || u.email === email);
+  if (!existing) {
+    APP.users.push(APP.user);
+  } else {
+    APP.user = existing;
+    if (phone === APP.devPhone || email === APP.devEmail) APP.user.role = 'developer';
+  }
+  
+  saveData();
+  
+  // Show app
+  document.getElementById('splash').classList.remove('active');
+  document.getElementById('auth').classList.remove('active');
+  document.getElementById('app').classList.add('active');
+  
+  if (isDev()) {
+    document.getElementById('devBadge').classList.remove('hidden');
+  }
+  
+  buildBottomNav();
+  navigateTo('dashboard');
+  showToast('Welcome, ' + APP.user.name + '!', 'success');
+}
+
+// ============================================================
+// NAVIGATION
+// ============================================================
+function buildBottomNav() {
+  const nav = document.getElementById('bottomNav');
+  let items = [];
+  
+  if (APP.user.role === 'landlord' || APP.user.role === 'developer') {
+    items = [
+      { id: 'dashboard', icon: '&#127968;', label: 'Home' },
+      { id: 'my-properties', icon: '&#128203;', label: 'Properties' },
+      { id: 'add-property', icon: '&#10133;', label: 'Add' },
+      { id: 'messages', icon: '&#128172;', label: 'Messages' },
+      { id: 'settings', icon: '&#9881;', label: 'Settings' }
+    ];
+  } else {
+    items = [
+      { id: 'dashboard', icon: '&#127968;', label: 'Home' },
+      { id: 'search', icon: '&#128269;', label: 'Search' },
+      { id: 'favorites', icon: '&#10084;', label: 'Saved' },
+      { id: 'messages', icon: '&#128172;', label: 'Messages' },
+      { id: 'settings', icon: '&#9881;', label: 'Settings' }
+    ];
+  }
+  
+  nav.innerHTML = items.map(item =>
+    `<button class="nav-item${item.id==='dashboard'?' active':''}" data-nav="${item.id}" onclick="navigateTo('${item.id}')">
+      <span class="nav-icon">${item.icon}</span>
+      <span>${item.label}</span>
+    </button>`
+  ).join('');
+}
+
+function navigateTo(page) {
+  APP.currentNav = page;
+  // Update nav active state
+  document.querySelectorAll('.nav-item').forEach(n => {
+    n.classList.toggle('active', n.dataset.nav === page);
+  });
+  
+  const content = document.getElementById('mainContent');
+  content.className = 'main-content page-enter';
+  setTimeout(() => content.className = 'main-content', 300);
+  
+  switch(page) {
+    case 'dashboard': renderDashboard(); break;
+    case 'my-properties': renderMyProperties(); break;
+    case 'add-property': renderAddProperty(); break;
+    case 'messages': renderMessages(); break;
+    case 'settings': renderSettings(); break;
+    case 'search': renderSearch(); break;
+    case 'favorites': renderFavorites(); break;
+    case 'property-detail': /* handled by function */ break;
+    default: renderDashboard();
+  }
+}
+
+// ============================================================
+// LANDLORD DASHBOARD
+// ============================================================
+function renderDashboard() {
+  const c = document.getElementById('mainContent');
+  const role = APP.user.role;
+  const isDeveloper = isDev();
+  
+  if (role === 'landlord' || isDeveloper) {
+    renderLandlordDashboard(c);
+  } else {
+    renderTenantDashboard(c);
+  }
+}
+
+function renderLandlordDashboard(c) {
+  const myProps = APP.properties.filter(p => p.landlordId === APP.user.id || isDev());
+  const available = myProps.filter(p => p.status === 'available').length;
+  const rented = myProps.filter(p => p.status === 'rented').length;
+  const totalMessages = APP.messages.filter(m => m.toId === APP.user.id).length;
+  
+  c.innerHTML = `
+    <div class="dash-greeting">
+      <p class="greeting-text">Namaste,</p>
+      <h2 class="greeting-name"><span>${APP.user.name}</span> &#127968;</h2>
+    </div>
+    
+    ${isDev() ? `
+    <div class="dev-panel">
+      <h3>&#128736; Developer Control Panel</h3>
+      <p style="font-size:0.82rem;color:var(--text-secondary);margin-bottom:12px">
+        Full access to all features. Edit, update, delete any content.
+      </p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn btn-sm btn-outline" onclick="devViewAllUsers()">All Users (${APP.users.length})</button>
+        <button class="btn btn-sm btn-outline" onclick="devViewAllProps()">All Properties (${APP.properties.length})</button>
+        <button class="btn btn-sm btn-outline" onclick="devClearData()">Reset Data</button>
+      </div>
+    </div>
+    ` : ''}
+    
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-number">${myProps.length}</div>
+        <div class="stat-label">Total Listings</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">${available}</div>
+        <div class="stat-label">Available</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">${rented}</div>
+        <div class="stat-label">Rented</div>
+      </div>
+    </div>
+    
+    <h3 class="section-title">Quick Actions</h3>
+    <div class="action-grid">
+      <div class="action-card" onclick="navigateTo('add-property')">
+        <div class="action-icon">&#10133;</div>
+        <div class="action-title">Add Property</div>
+        <div class="action-desc">List a new property</div>
+      </div>
+      <div class="action-card" onclick="navigateTo('my-properties')">
+        <div class="action-icon">&#128203;</div>
+        <div class="action-title">My Listings</div>
+        <div class="action-desc">Manage properties</div>
+      </div>
+      <div class="action-card" onclick="navigateTo('messages')">
+        <div class="action-icon">&#128172;</div>
+        <div class="action-title">Messages</div>
+        <div class="action-desc">${totalMessages} message${totalMessages!==1?'s':''}</div>
+      </div>
+      <div class="action-card" onclick="showSupport()">
+        <div class="action-icon">&#10084;</div>
+        <div class="action-title">Support</div>
+        <div class="action-desc">Help the developer</div>
+      </div>
+    </div>
+    
+    <h3 class="section-title">Recent Listings</h3>
+    ${myProps.length === 0 ? `
+      <div class="empty-state">
+        <div class="empty-icon">&#127968;</div>
+        <h3>No properties yet</h3>
+        <p>Start by adding your first property listing</p>
+      </div>
+    ` : myProps.slice(0, 3).map(p => renderPropertyCard(p)).join('')}
+  `;
+}
+
+function renderTenantDashboard(c) {
+  const availableProps = APP.properties.filter(p => p.status === 'available');
+  
+  c.innerHTML = `
+    <div class="dash-greeting">
+      <p class="greeting-text">Namaste,</p>
+      <h2 class="greeting-name"><span>${APP.user.name}</span> &#128716;</h2>
+    </div>
+    
+    <div class="search-bar">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" placeholder="Search location, type..." id="dashSearch" oninput="filterDashProperties()">
+    </div>
+    
+    <div class="filter-chips" id="dashFilters">
+      <span class="chip selected" data-filter="all" onclick="filterByType(this, 'all')">All</span>
+      <span class="chip" data-filter="room" onclick="filterByType(this, 'room')">Rooms</span>
+      <span class="chip" data-filter="flat" onclick="filterByType(this, 'flat')">Flats</span>
+      <span class="chip" data-filter="office" onclick="filterByType(this, 'office')">Offices</span>
+      <span class="chip" data-filter="building" onclick="filterByType(this, 'building')">Buildings</span>
+    </div>
+    
+    <div class="filter-chips" style="margin-top:-8px">
+      <span class="chip selected" data-dist="all" onclick="filterByDist(this, 'all')">All Districts</span>
+      <span class="chip" data-dist="Kathmandu" onclick="filterByDist(this, 'Kathmandu')">Kathmandu</span>
+      <span class="chip" data-dist="Lalitpur" onclick="filterByDist(this, 'Lalitpur')">Lalitpur</span>
+      <span class="chip" data-dist="Bhaktapur" onclick="filterByDist(this, 'Bhaktapur')">Bhaktapur</span>
+    </div>
+    
+    <div style="display:flex;justify-content:space-between;align-items:center;margin:16px 0 12px">
+      <h3 class="section-title" style="margin:0">Available Properties</h3>
+      <span class="badge badge-accent">${availableProps.length} found</span>
+    </div>
+    
+    <div id="tenantPropertyList">
+      ${availableProps.length === 0 ? `
+        <div class="empty-state">
+          <div class="empty-icon">&#128269;</div>
+          <h3>No properties available</h3>
+          <p>Check back later for new listings</p>
+        </div>
+      ` : availableProps.map(p => renderPropertyCard(p, true)).join('')}
+    </div>
+  `;
+}
+
+APP._activeFilters = { type: 'all', district: 'all', search: '' };
+
+function filterByType(el, type) {
+  document.querySelectorAll('#dashFilters .chip').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  APP._activeFilters.type = type;
+  applyTenantFilters();
+}
+
+function filterByDist(el, dist) {
+  document.querySelectorAll('[data-dist]').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  APP._activeFilters.district = dist;
+  applyTenantFilters();
+}
+
+function filterDashProperties() {
+  APP._activeFilters.search = document.getElementById('dashSearch').value.toLowerCase();
+  applyTenantFilters();
+}
+
+function applyTenantFilters() {
+  let props = APP.properties.filter(p => p.status === 'available');
+  const { type, district, search } = APP._activeFilters;
+  if (type !== 'all') props = props.filter(p => p.type === type);
+  if (district !== 'all') props = props.filter(p => p.district === district);
+  if (search) props = props.filter(p =>
+    p.location.toLowerCase().includes(search) ||
+    p.description.toLowerCase().includes(search) ||
+    p.type.includes(search) ||
+    p.district.toLowerCase().includes(search)
+  );
+  const list = document.getElementById('tenantPropertyList');
+  if (list) {
+    list.innerHTML = props.length === 0
+      ? '<div class="empty-state"><div class="empty-icon">&#128269;</div><h3>No match found</h3><p>Try adjusting your filters</p></div>'
+      : props.map(p => renderPropertyCard(p, true)).join('');
+  }
+}
+
+// ============================================================
+// PROPERTY CARD RENDERER
+// ============================================================
+function renderPropertyCard(p, isTenantView=false) {
+  const typeIcons = { room: '&#128716;', flat: '&#127968;', office: '&#127970;', building: '&#127969;' };
+  const imgHtml = p.images && p.images.length > 0
+    ? `<img src="${p.images[0]}" alt="${p.name}">`
+    : `<span>${typeIcons[p.type] || '&#127968;'}</span>`;
+  
+  return `
+    <div class="property-card" onclick="viewProperty('${p.id}', ${isTenantView})">
+      <div class="property-img">
+        ${imgHtml}
+        <span class="property-status-badge badge ${p.status==='available'?'badge-success':'badge-danger'}">
+          ${p.status==='available'?'Available':'Rented'}
+        </span>
+        <span class="property-type-badge badge badge-info">${p.type}</span>
+      </div>
+      <div class="property-info">
+        <h3>${p.name || 'Property'}</h3>
+        <div class="property-location">&#128205; ${p.location}, ${p.district}</div>
+        <div class="property-meta">
+          <div class="property-price">
+            ${formatNPR(p.rent)}<small>/month ${p.negotiable?'(Negotiable)':''}</small>
+          </div>
+        </div>
+        ${p.facilities && p.facilities.length > 0 ? `
+        <div class="property-facilities">
+          ${p.facilities.slice(0,3).map(f => `<span class="badge badge-accent">${f}</span>`).join('')}
+          ${p.facilities.length > 3 ? `<span class="badge badge-info">+${p.facilities.length-3}</span>` : ''}
+        </div>
+        ` : ''}
+      </div>
+    </div>
+  `;
+}
+
+// ============================================================
+// PROPERTY DETAIL VIEW
+// ============================================================
+function viewProperty(id, isTenantView=false) {
+  const p = APP.properties.find(pr => pr.id === id);
+  if (!p) return;
+  
+  const c = document.getElementById('mainContent');
+  const canEdit = isDev() || p.landlordId === APP.user.id;
+  const typeIcons = { room: '&#128716;', flat: '&#127968;', office: '&#127970;', building: '&#127969;' };
+  
+  const imgHtml = p.images && p.images.length > 0
+    ? `<img src="${p.images[0]}" alt="${p.name}">`
+    : `<div style="height:220px;display:flex;align-items:center;justify-content:center;font-size:4rem;color:var(--text-muted);background:var(--bg-input)">${typeIcons[p.type] || '&#127968;'}</div>`;
+  
+  c.innerHTML = `
+    <div class="detail-header" style="border-radius:var(--radius);overflow:hidden;margin:-20px -20px 0">
+      ${imgHtml}
+      <button class="btn-icon detail-back" onclick="navigateTo('${isTenantView?'dashboard':'my-properties'}')">&#8592;</button>
+    </div>
+    <div class="detail-body">
+      <span class="badge ${p.status==='available'?'badge-success':'badge-danger'}" style="margin-bottom:8px">
+        ${p.status==='available'?'Available':'Rented'}
+      </span>
+      <h2 class="detail-title">${p.name || 'Property'}</h2>
+      <p class="property-location">&#128205; ${p.location}, ${p.district}</p>
+      
+      <div class="detail-price">
+        ${formatNPR(p.rent)} <small style="font-size:0.75rem;color:var(--text-muted)">/month</small>
+        ${p.negotiable ? '<span class="badge badge-accent" style="margin-left:8px">Negotiable</span>' : ''}
+      </div>
+      
+      <div style="display:flex;gap:8px;margin:12px 0;flex-wrap:wrap">
+        <span class="badge badge-info">${p.type.charAt(0).toUpperCase()+p.type.slice(1)}</span>
+        <span class="badge badge-info">${p.count} unit${p.count>1?'s':''}</span>
+      </div>
+      
+      ${p.facilities && p.facilities.length > 0 ? `
+      <div class="detail-section">
+        <h4>Facilities</h4>
+        <div class="property-facilities">
+          ${p.facilities.map(f => `<span class="badge badge-accent">${f}</span>`).join('')}
+        </div>
+      </div>
+      ` : ''}
+      
+      <div class="detail-section">
+        <h4>Description</h4>
+        <p class="detail-desc">${p.description || 'No description provided.'}</p>
+      </div>
+      
+      <div class="detail-section">
+        <h4>Contact</h4>
+        <p style="font-size:1.1rem;font-weight:600;color:var(--accent)">${p.contact || 'Not provided'}</p>
+      </div>
+      
+      <div class="detail-contact">
+        ${isTenantView && p.status === 'available' ? `
+          <button class="btn btn-primary" style="flex:1" onclick="contactLandlord('${p.id}')">&#128172; Message</button>
+          <button class="btn btn-secondary" style="flex:1" onclick="window.open('tel:${p.contact}')">&#128222; Call</button>
+        ` : ''}
+        ${canEdit ? `
+          <button class="btn btn-outline" onclick="editProperty('${p.id}')">&#9998; Edit</button>
+          <button class="btn btn-danger btn-sm" onclick="deleteProperty('${p.id}')">&#128465; Delete</button>
+          <button class="btn btn-sm ${p.status==='available'?'btn-secondary':'btn-outline'}" onclick="togglePropertyStatus('${p.id}')">
+            ${p.status==='available'?'Mark Rented':'Mark Available'}
+          </button>
+        ` : ''}
+      </div>
+      
+      <div class="divider"></div>
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <p style="font-size:0.75rem;color:var(--text-muted)">Listed ${timeAgo(p.createdAt)}</p>
+        <button class="btn btn-sm btn-secondary" onclick="showRating('${p.id}')">Rate Property</button>
+      </div>
+    </div>
+  `;
+  
+  // Scroll to top
+  c.scrollTop = 0;
+}
+
+// ============================================================
+// ADD PROPERTY FORM
+// ============================================================
+const FACILITY_OPTIONS = [
+  'Peaceful Environment', '24hr Water', 'Parking', 'WiFi Available',
+  'Security Guard', 'Lift', 'Generator', 'Garden', 'Balcony',
+  'Furnished', 'Semi-Furnished', 'Attached Bathroom', 'Kitchen'
+];
+
+const DISTRICT_OPTIONS = ['Kathmandu', 'Bhaktapur', 'Lalitpur'];
+const TYPE_OPTIONS = [
+  { value: 'room', label: 'Room', icon: '&#128716;' },
+  { value: 'flat', label: 'Flat', icon: '&#127968;' },
+  { value: 'office', label: 'Office', icon: '&#127970;' },
+  { value: 'building', label: 'Building', icon: '&#127969;' }
+];
+
+let editingPropertyId = null;
+let formImages = [];
+
+function renderAddProperty(editId) {
+  editingPropertyId = editId || null;
+  const c = document.getElementById('mainContent');
+  let p = {};
+  
+  if (editId) {
+    p = APP.properties.find(pr => pr.id === editId) || {};
+    formImages = p.images ? [...p.images] : [];
+  } else {
+    formImages = [];
+  }
+  
+  c.innerHTML = `
+    <h2 class="section-title" style="font-size:1.4rem">${editId ? 'Edit Property' : 'Add New Property'}</h2>
+    
+    <div class="form-group">
+      <label>Property Name</label>
+      <input type="text" id="formName" placeholder="e.g., Sita Ghar" value="${p.name || ''}">
+    </div>
+    
+    <div class="form-group">
+      <label>Property Type</label>
+      <div class="chip-group" id="formType">
+        ${TYPE_OPTIONS.map(t => `
+          <span class="chip${p.type===t.value?' selected':''}" data-val="${t.value}" onclick="selectChip(this, 'formType')">
+            ${t.icon} ${t.label}
+          </span>
+        `).join('')}
+      </div>
+    </div>
+    
+    <div class="form-row">
+      <div class="form-group">
+        <label>No. of Units</label>
+        <input type="number" id="formCount" min="1" value="${p.count || 1}">
+      </div>
+      <div class="form-group">
+        <label>Monthly Rent (NPR)</label>
+        <input type="number" id="formRent" placeholder="e.g., 10000" value="${p.rent || ''}">
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label>Price Type</label>
+      <div class="chip-group" id="formNegotiable">
+        <span class="chip${p.negotiable!==false?' selected':''}" data-val="true" onclick="selectChip(this, 'formNegotiable')">
+          Negotiable
+        </span>
+        <span class="chip${p.negotiable===false?' selected':''}" data-val="false" onclick="selectChip(this, 'formNegotiable')">
+          Non-Negotiable
+        </span>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label>District</label>
+      <select id="formDistrict">
+        ${DISTRICT_OPTIONS.map(d => `
+          <option value="${d}"${p.district===d?' selected':''}>${d}</option>
+        `).join('')}
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label>Location / Area</label>
+      <input type="text" id="formLocation" placeholder="e.g., Baneshwor, near BICC" value="${p.location || ''}">
+    </div>
+    
+    <div class="form-group">
+      <label>Facilities</label>
+      <div class="chip-group" id="formFacilities">
+        ${FACILITY_OPTIONS.map(f => `
+          <span class="chip${(p.facilities||[]).includes(f)?' selected':''}" data-val="${f}" onclick="toggleChip(this)">
+            ${f}
+          </span>
+        `).join('')}
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label>Property Images</label>
+      <div class="image-upload-area" onclick="document.getElementById('imgUpload').click()">
+        <div class="upload-icon">&#128247;</div>
+        <p style="font-size:0.85rem;color:var(--text-muted)">Tap to upload images</p>
+        <p style="font-size:0.72rem;color:var(--text-muted)">Max 5 images</p>
+      </div>
+      <input type="file" id="imgUpload" accept="image/*" multiple style="display:none" onchange="handleImageUpload(this)">
+      <div class="image-preview-grid" id="imgPreviewGrid">
+        ${formImages.map((img, i) => `
+          <div class="image-preview-item">
+            <img src="${img}" alt="Preview">
+            <span class="remove-img" onclick="removeFormImg(${i})">&#10005;</span>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label>Contact Number</label>
+      <input type="tel" id="formContact" placeholder="98XXXXXXXX" value="${p.contact || ''}">
+    </div>
+    
+    <div class="form-group">
+      <label>Describe Your Property</label>
+      <textarea id="formDesc" rows="5" placeholder="Write a detailed description of your property...">${p.description || ''}</textarea>
+    </div>
+    
+    <div class="form-group">
+      <label>Status</label>
+      <div class="chip-group" id="formStatus">
+        <span class="chip${p.status!=='rented'?' selected':''}" data-val="available" onclick="selectChip(this, 'formStatus')">
+          &#9989; Available
+        </span>
+        <span class="chip${p.status==='rented'?' selected':''}" data-val="rented" onclick="selectChip(this, 'formStatus')">
+          &#10060; Rented
+        </span>
+      </div>
+    </div>
+    
+    <button class="btn btn-primary btn-full" onclick="saveProperty()" style="margin-top:8px">
+      ${editId ? '&#128190; Update Property' : '&#10133; Add Property'}
+    </button>
+    ${editId ? '<button class="btn btn-secondary btn-full" style="margin-top:8px" onclick="navigateTo(\'my-properties\')">Cancel</button>' : ''}
+  `;
+}
+
+function selectChip(el, groupId) {
+  document.querySelectorAll(`#${groupId} .chip`).forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+function toggleChip(el) {
+  el.classList.toggle('selected');
+}
+
+function handleImageUpload(input) {
+  const files = input.files;
+  if (!files.length) return;
+  if (formImages.length + files.length > 5) {
+    showToast('Maximum 5 images allowed', 'error');
+    return;
+  }
+  Array.from(files).forEach(file => {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      formImages.push(e.target.result);
+      updateImagePreview();
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function removeFormImg(idx) {
+  formImages.splice(idx, 1);
+  updateImagePreview();
+}
+
+function updateImagePreview() {
+  const grid = document.getElementById('imgPreviewGrid');
+  if (!grid) return;
+  grid.innerHTML = formImages.map((img, i) => `
+    <div class="image-preview-item">
+      <img src="${img}" alt="Preview">
+      <span class="remove-img" onclick="removeFormImg(${i})">&#10005;</span>
+    </div>
+  `).join('');
+}
+
+function getSelectedVal(groupId) {
+  const sel = document.querySelector(`#${groupId} .chip.selected`);
+  return sel ? sel.dataset.val : '';
+}
+
+function getSelectedVals(groupId) {
+  return Array.from(document.querySelectorAll(`#${groupId} .chip.selected`)).map(c => c.dataset.val);
+}
+
+function saveProperty() {
+  const name = document.getElementById('formName').value.trim();
+  const type = getSelectedVal('formType');
+  const count = parseInt(document.getElementById('formCount').value) || 1;
+  const rent = parseInt(document.getElementById('formRent').value);
+  const negotiable = getSelectedVal('formNegotiable') === 'true';
+  const district = document.getElementById('formDistrict').value;
+  const location = document.getElementById('formLocation').value.trim();
+  const facilities = getSelectedVals('formFacilities');
+  const contact = document.getElementById('formContact').value.trim();
+  const description = document.getElementById('formDesc').value.trim();
+  const status = getSelectedVal('formStatus') || 'available';
+  
+  // Validation
+  if (!name) { showToast('Please enter a property name', 'error'); return; }
+  if (!type) { showToast('Please select a property type', 'error'); return; }
+  if (!rent) { showToast('Please enter a rent amount', 'error'); return; }
+  if (!location) { showToast('Please enter a location', 'error'); return; }
+  if (!contact) { showToast('Please enter a contact number', 'error'); return; }
+  
+  if (editingPropertyId) {
+    // Update existing
+    const idx = APP.properties.findIndex(p => p.id === editingPropertyId);
+    if (idx !== -1) {
+      APP.properties[idx] = {
+        ...APP.properties[idx],
+        name, type, count, rent, negotiable, district, location,
+        facilities, contact, description, status,
+        images: [...formImages]
+      };
+      showToast('Property updated successfully!', 'success');
+    }
+  } else {
+    // Create new
+    APP.properties.push({
+      id: genId(),
+      landlordId: APP.user.id,
+      name, type, count, rent, negotiable, district, location,
+      facilities, contact, description, status,
+      images: [...formImages],
+      createdAt: Date.now(),
+      rating: 0
+    });
+    showToast('Property listed successfully!', 'success');
+  }
+  
+  saveData();
+  editingPropertyId = null;
+  formImages = [];
+  navigateTo('my-properties');
+}
+
+// ============================================================
+// MY PROPERTIES
+// ============================================================
+function renderMyProperties() {
+  const c = document.getElementById('mainContent');
+  let props = isDev() ? APP.properties : APP.properties.filter(p => p.landlordId === APP.user.id);
+  
+  c.innerHTML = `
+    <h2 class="section-title" style="font-size:1.4rem">My Properties</h2>
+    <div class="search-bar">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" placeholder="Search your properties..." oninput="searchMyProps(this.value)">
+    </div>
+    <div id="myPropsList">
+      ${props.length === 0 ? `
+        <div class="empty-state">
+          <div class="empty-icon">&#128203;</div>
+          <h3>No properties listed</h3>
+          <p>Tap "Add" to list your first property</p>
+        </div>
+      ` : props.map(p => renderPropertyCard(p)).join('')}
+    </div>
+  `;
+}
+
+function searchMyProps(query) {
+  let props = isDev() ? APP.properties : APP.properties.filter(p => p.landlordId === APP.user.id);
+  if (query) {
+    query = query.toLowerCase();
+    props = props.filter(p =>
+      p.name.toLowerCase().includes(query) ||
+      p.location.toLowerCase().includes(query) ||
+      p.type.includes(query)
+    );
+  }
+  document.getElementById('myPropsList').innerHTML = props.length === 0
+    ? '<div class="empty-state"><h3>No results</h3></div>'
+    : props.map(p => renderPropertyCard(p)).join('');
+}
+
+// ============================================================
+// PROPERTY ACTIONS
+// ============================================================
+function editProperty(id) {
+  renderAddProperty(id);
+}
+
+function deleteProperty(id) {
+  showModal(`
+    <h3>Delete Property?</h3>
+    <p>This action cannot be undone.</p>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-danger" onclick="confirmDelete('${id}')">Delete</button>
+    </div>
+  `);
+}
+
+function confirmDelete(id) {
+  APP.properties = APP.properties.filter(p => p.id !== id);
+  APP.messages = APP.messages.filter(m => m.propertyId !== id);
+  saveData();
+  closeModal();
+  showToast('Property deleted', 'success');
+  navigateTo('my-properties');
+}
+
+function togglePropertyStatus(id) {
+  const p = APP.properties.find(pr => pr.id === id);
+  if (p) {
+    p.status = p.status === 'available' ? 'rented' : 'available';
+    saveData();
+    showToast(`Marked as ${p.status}`, 'success');
+    viewProperty(id);
+  }
+}
+
+// ============================================================
+// TENANT: CONTACT LANDLORD
+// ============================================================
+function contactLandlord(propId) {
+  const p = APP.properties.find(pr => pr.id === propId);
+  if (!p) return;
+  
+  showModal(`
+    <h3>Send a Message</h3>
+    <p>To: ${p.name || 'Landlord'}</p>
+    <div class="form-group" style="margin-top:12px">
+      <textarea id="contactMsg" rows="4" placeholder="Hi, I'm interested in your property..."></textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="sendContactMessage('${propId}')">Send</button>
+    </div>
+  `);
+}
+
+function sendContactMessage(propId) {
+  const p = APP.properties.find(pr => pr.id === propId);
+  const text = document.getElementById('contactMsg').value.trim();
+  if (!text) { showToast('Please write a message', 'error'); return; }
+  
+  APP.messages.push({
+    id: genId(),
+    fromId: APP.user.id,
+    fromName: APP.user.name,
+    toId: p.landlordId,
+    toName: 'Landlord',
+    propertyId: propId,
+    propertyName: p.name,
+    text: text,
+    timestamp: Date.now(),
+    read: false
+  });
+  
+  // Add notification
+  APP.notifications.push({
+    id: genId(),
+    userId: p.landlordId,
+    text: `New message about "${p.name}"`,
+    timestamp: Date.now(),
+    read: false
+  });
+  
+  saveData();
+  closeModal();
+  showToast('Message sent!', 'success');
+}
+
+// ============================================================
+// MESSAGES
+// ============================================================
+function renderMessages() {
+  const c = document.getElementById('mainContent');
+  const userId = APP.user.id;
+  const userMsgs = APP.messages.filter(m => m.fromId === userId || m.toId === userId);
+  
+  // Group by conversation (property + other user)
+  const convos = {};
+  userMsgs.forEach(m => {
+    const otherId = m.fromId === userId ? m.toId : m.fromId;
+    const otherName = m.fromId === userId ? m.toName : m.fromName;
+    const key = otherId + '_' + m.propertyId;
+    if (!convos[key] || m.timestamp > convos[key].lastMsg.timestamp) {
+      convos[key] = { otherId, otherName, propertyId: m.propertyId, propertyName: m.propertyName, lastMsg: m, unread: m.toId === userId && !m.read ? 1 : 0 };
+    } else if (m.toId === userId && !m.read) {
+      convos[key].unread++;
+    }
+  });
+  
+  const convoList = Object.values(convos).sort((a,b) => b.lastMsg.timestamp - a.lastMsg.timestamp);
+  
+  c.innerHTML = `
+    <h2 class="section-title" style="font-size:1.4rem">Messages</h2>
+    ${convoList.length === 0 ? `
+      <div class="empty-state">
+        <div class="empty-icon">&#128172;</div>
+        <h3>No messages yet</h3>
+        <p>Your conversations will appear here</p>
+      </div>
+    ` : `
+      <div class="msg-list">
+        ${convoList.map(co => `
+          <div class="msg-item${co.unread?' unread':''}" onclick="openChat('${co.otherId}', '${co.propertyId}')">
+            <div class="msg-avatar">${co.otherName.charAt(0)}</div>
+            <div class="msg-content">
+              <div class="msg-name">${co.otherName}</div>
+              <div class="msg-preview">${co.propertyName ? co.propertyName + ': ' : ''}${co.lastMsg.text}</div>
+            </div>
+            <div style="text-align:right">
+              <div class="msg-time">${timeAgo(co.lastMsg.timestamp)}</div>
+              ${co.unread ? `<span class="badge badge-danger" style="margin-top:4px">${co.unread}</span>` : ''}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `}
+  `;
+}
+
+function openChat(otherId, propertyId) {
+  const c = document.getElementById('mainContent');
+  const userId = APP.user.id;
+  
+  // Mark messages as read
+  APP.messages.forEach(m => {
+    if (m.fromId === otherId && m.propertyId === propertyId && m.toId === userId) {
+      m.read = true;
+    }
+  });
+  saveData();
+  
+  const msgs = APP.messages.filter(m =>
+    m.propertyId === propertyId &&
+    ((m.fromId === userId && m.toId === otherId) || (m.fromId === otherId && m.toId === userId))
+  ).sort((a,b) => a.timestamp - b.timestamp);
+  
+  const otherName = msgs.length > 0
+    ? (msgs[0].fromId === userId ? msgs[0].toName : msgs[0].fromName)
+    : 'User';
+  const propName = msgs.length > 0 ? msgs[0].propertyName : '';
+  
+  c.innerHTML = `
+    <div class="chat-view" style="margin:-20px;height:calc(100vh - 56px)">
+      <div class="chat-header">
+        <button class="back-btn" onclick="navigateTo('messages')">&#8592;</button>
+        <div>
+          <div style="font-weight:600;font-size:0.95rem">${otherName}</div>
+          ${propName ? `<div style="font-size:0.72rem;color:var(--text-muted)">Re: ${propName}</div>` : ''}
+        </div>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        ${msgs.map(m => `
+          <div class="chat-bubble ${m.fromId===userId?'sent':'received'}">
+            ${m.text}
+            <div class="bubble-time">${timeAgo(m.timestamp)}</div>
+          </div>
+        `).join('')}
+      </div>
+      <div class="chat-input-area">
+        <input type="text" id="chatInput" placeholder="Type a message..." onkeydown="if(event.key==='Enter')sendChatMsg('${otherId}','${propertyId}')">
+        <button class="btn btn-primary btn-sm" onclick="sendChatMsg('${otherId}','${propertyId}')">Send</button>
+      </div>
+    </div>
+  `;
+  
+  // Scroll to bottom
+  setTimeout(() => {
+    const msgDiv = document.getElementById('chatMessages');
+    if (msgDiv) msgDiv.scrollTop = msgDiv.scrollHeight;
+  }, 100);
+}
+
+function sendChatMsg(otherId, propertyId) {
+  const input = document.getElementById('chatInput');
+  const text = input.value.trim();
+  if (!text) return;
+  
+  const otherUser = APP.users.find(u => u.id === otherId) || { name: 'User' };
+  const prop = APP.properties.find(p => p.id === propertyId);
+  
+  APP.messages.push({
+    id: genId(),
+    fromId: APP.user.id,
+    fromName: APP.user.name,
+    toId: otherId,
+    toName: otherUser.name,
+    propertyId: propertyId,
+    propertyName: prop ? prop.name : '',
+    text: text,
+    timestamp: Date.now(),
+    read: false
+  });
+  
+  saveData();
+  input.value = '';
+  
+  // Re-render chat
+  openChat(otherId, propertyId);
+}
+
+// ============================================================
+// TENANT: SEARCH
+// ============================================================
+function renderSearch() {
+  const c = document.getElementById('mainContent');
+  c.innerHTML = `
+    <h2 class="section-title" style="font-size:1.4rem">Search Properties</h2>
+    <div class="search-bar">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="searchInput" placeholder="Search by location, type, name..." oninput="performSearch()">
+    </div>
+    <div class="filter-chips">
+      <span class="chip selected" data-stype="all" onclick="searchFilterType(this,'all')">All</span>
+      <span class="chip" data-stype="room" onclick="searchFilterType(this,'room')">Rooms</span>
+      <span class="chip" data-stype="flat" onclick="searchFilterType(this,'flat')">Flats</span>
+      <span class="chip" data-stype="office" onclick="searchFilterType(this,'office')">Offices</span>
+      <span class="chip" data-stype="building" onclick="searchFilterType(this,'building')">Buildings</span>
+    </div>
+    <div class="filter-chips" style="margin-top:-4px">
+      <span class="chip selected" data-sdist="all" onclick="searchFilterDist(this,'all')">All</span>
+      <span class="chip" data-sdist="Kathmandu" onclick="searchFilterDist(this,'Kathmandu')">Kathmandu</span>
+      <span class="chip" data-sdist="Lalitpur" onclick="searchFilterDist(this,'Lalitpur')">Lalitpur</span>
+      <span class="chip" data-sdist="Bhaktapur" onclick="searchFilterDist(this,'Bhaktapur')">Bhaktapur</span>
+    </div>
+    <div id="searchResults">
+      ${APP.properties.filter(p=>p.status==='available').map(p => renderPropertyCard(p, true)).join('')}
+    </div>
+  `;
+}
+
+APP._searchFilters = { type: 'all', district: 'all' };
+
+function searchFilterType(el, type) {
+  document.querySelectorAll('[data-stype]').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  APP._searchFilters.type = type;
+  performSearch();
+}
+
+function searchFilterDist(el, dist) {
+  document.querySelectorAll('[data-sdist]').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  APP._searchFilters.district = dist;
+  performSearch();
+}
+
+function performSearch() {
+  const query = (document.getElementById('searchInput')?.value || '').toLowerCase();
+  let props = APP.properties.filter(p => p.status === 'available');
+  
+  if (APP._searchFilters.type !== 'all') props = props.filter(p => p.type === APP._searchFilters.type);
+  if (APP._searchFilters.district !== 'all') props = props.filter(p => p.district === APP._searchFilters.district);
+  if (query) props = props.filter(p =>
+    p.name.toLowerCase().includes(query) ||
+    p.location.toLowerCase().includes(query) ||
+    p.description.toLowerCase().includes(query) ||
+    p.type.includes(query) ||
+    p.district.toLowerCase().includes(query)
+  );
+  
+  const results = document.getElementById('searchResults');
+  if (results) {
+    results.innerHTML = props.length === 0
+      ? '<div class="empty-state"><div class="empty-icon">&#128269;</div><h3>No results found</h3><p>Try different search terms or filters</p></div>'
+      : props.map(p => renderPropertyCard(p, true)).join('');
+  }
+}
+
+// ============================================================
+// FAVORITES (Tenant)
+// ============================================================
+function renderFavorites() {
+  const c = document.getElementById('mainContent');
+  c.innerHTML = `
+    <h2 class="section-title" style="font-size:1.4rem">Saved Properties</h2>
+    <div class="empty-state">
+      <div class="empty-icon">&#10084;</div>
+      <h3>Coming Soon</h3>
+      <p>Save your favorite properties for quick access</p>
+    </div>
+  `;
+}
+
+// ============================================================
+// NOTIFICATIONS
+// ============================================================
+function showNotifications() {
+  const notifs = APP.notifications.filter(n => n.userId === APP.user.id).sort((a,b) => b.timestamp - a.timestamp);
+  
+  showModal(`
+    <h3>Notifications</h3>
+    ${notifs.length === 0 ? '<p style="text-align:center;color:var(--text-muted)">No notifications</p>' : `
+      <div style="max-height:300px;overflow-y:auto;margin-top:12px">
+        ${notifs.map(n => `
+          <div style="padding:10px;border-bottom:1px solid var(--border);font-size:0.85rem">
+            <div>${n.text}</div>
+            <div style="font-size:0.7rem;color:var(--text-muted);margin-top:4px">${timeAgo(n.timestamp)}</div>
+          </div>
+        `).join('')}
+      </div>
+    `}
+    <div class="modal-actions" style="margin-top:16px">
+      <button class="btn btn-secondary btn-full" onclick="closeModal()">Close</button>
+    </div>
+  `);
+  
+  document.getElementById('notifDot').classList.add('hidden');
+}
+
+// Check for unread notifications
+function checkNotifications() {
+  const hasUnread = APP.notifications.some(n => n.userId === APP.user?.id && !n.read);
+  const dot = document.getElementById('notifDot');
+  if (dot) dot.classList.toggle('hidden', !hasUnread);
+}
+
+// ============================================================
+// SUPPORT / DONATION
+// ============================================================
+function showSupport() {
+  showModal(`
+    <h3>Support the Developer</h3>
+    <p>Would you like to contribute to the developer?</p>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeModal()">No, Thanks</button>
+      <button class="btn btn-primary" onclick="showDonationInfo()">Yes!</button>
+    </div>
+  `);
+}
+
+function showDonationInfo() {
+  showModal(`
+    <h3>Thank You! &#10084;</h3>
+    <p>Your support means a lot!</p>
+    <div class="donation-info">
+      <div style="margin:16px 0">
+        <p style="font-weight:600;color:var(--accent);margin-bottom:8px">Esewa ID</p>
+        <p style="font-size:0.95rem;color:var(--text-primary)">9800000000</p>
+      </div>
+      <div style="margin:16px 0">
+        <p style="font-weight:600;color:var(--accent);margin-bottom:8px">Bank Account</p>
+        <p style="font-size:0.85rem;color:var(--text-secondary)">Scan QR Code</p>
+        <div class="qr-placeholder">&#128247; QR Code</div>
+      </div>
+    </div>
+    <button class="btn btn-secondary btn-full" onclick="closeModal()">Close</button>
+  `);
+}
+
+// ============================================================
+// RATING
+// ============================================================
+function showRating(propId) {
+  let selectedStars = 0;
+  showModal(`
+    <h3>Rate this Property</h3>
+    <p>How was your experience?</p>
+    <div class="rating-stars" id="ratingStars">
+      ${[1,2,3,4,5].map(i => `
+        <span class="star" data-star="${i}" onclick="selectStar(${i})">&#9733;</span>
+      `).join('')}
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="submitRating('${propId}')">Submit</button>
+    </div>
+  `);
+}
+
+function selectStar(n) {
+  document.querySelectorAll('#ratingStars .star').forEach(s => {
+    s.classList.toggle('active', parseInt(s.dataset.star) <= n);
+  });
+  window._selectedRating = n;
+}
+
+function submitRating(propId) {
+  const r = window._selectedRating;
+  if (!r) { showToast('Please select a rating', 'error'); return; }
+  
+  const p = APP.properties.find(pr => pr.id === propId);
+  if (p) {
+    p.rating = r;
+    saveData();
+  }
+  closeModal();
+  showToast('Thanks for your rating!', 'success');
+}
+
+// ============================================================
+// SETTINGS
+// ============================================================
+function renderSettings() {
+  const c = document.getElementById('mainContent');
+  const theme = document.documentElement.dataset.theme;
+  const devMode = isDev();
+  
+  c.innerHTML = `
+    <h2 class="section-title" style="font-size:1.4rem">Settings</h2>
+    
+    <!-- Account -->
+    <div class="settings-group">
+      <div class="settings-group-title">Account</div>
+      <div class="settings-item">
+        <div class="settings-item-left">
+          <div class="set-icon">&#128100;</div>
+          <div class="set-text">
+            <div class="set-title">${APP.user.name}</div>
+            <div class="set-desc">${APP.user.role === 'developer' ? 'Developer' : APP.user.role === 'landlord' ? 'Landlord (Gharbeti)' : 'Tenant (Kirayadar)'}</div>
+          </div>
+        </div>
+        <span class="badge badge-accent">${APP.user.role}</span>
+      </div>
+      <div class="settings-item">
+        <div class="settings-item-left">
+          <div class="set-icon">&#128222;</div>
+          <div class="set-text">
+            <div class="set-title">${APP.user.phone || 'Not set'}</div>
+            <div class="set-desc">Phone Number</div>
+          </div>
+        </div>
+      </div>
+      <div class="settings-item">
+        <div class="settings-item-left">
+          <div class="set-icon">&#9993;</div>
+          <div class="set-text">
+            <div class="set-title">${APP.user.email || 'Not set'}</div>
+            <div class="set-desc">Email Address</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Appearance -->
+    <div class="settings-group">
+      <div class="settings-group-title">Appearance</div>
+      <div class="settings-item" onclick="toggleTheme()">
+        <div class="settings-item-left">
+          <div class="set-icon">${theme==='dark'?'&#127769;':'&#9728;'}</div>
+          <div class="set-text">
+            <div class="set-title">Theme</div>
+            <div class="set-desc">${theme==='dark'?'Dark Mode (AMOLED)':'Light Mode'}</div>
+          </div>
+        </div>
+        <div class="toggle ${theme==='dark'?'active':''}"></div>
+      </div>
+      <div class="settings-item" onclick="cycleFontSize()">
+        <div class="settings-item-left">
+          <div class="set-icon">&#128260;</div>
+          <div class="set-text">
+            <div class="set-title">Font Size</div>
+            <div class="set-desc">${getFontSizeLabel()}</div>
+          </div>
+        </div>
+        <span class="settings-item-right">Change</span>
+      </div>
+      <div class="settings-item" onclick="cycleFontFamily()">
+        <div class="settings-item-left">
+          <div class="set-icon">&#128221;</div>
+          <div class="set-text">
+            <div class="set-title">Font Style</div>
+            <div class="set-desc">${getFontFamilyLabel()}</div>
+          </div>
+        </div>
+        <span class="settings-item-right">Change</span>
+      </div>
+    </div>
+    
+    <!-- App -->
+    <div class="settings-group">
+      <div class="settings-group-title">App</div>
+      <div class="settings-item" onclick="showSupport()">
+        <div class="settings-item-left">
+          <div class="set-icon">&#10084;</div>
+          <div class="set-text">
+            <div class="set-title">Support Developer</div>
+            <div class="set-desc">Contribute to keep this app running</div>
+          </div>
+        </div>
+        <span class="settings-item-right">&#8250;</span>
+      </div>
+      <div class="settings-item" onclick="rateApp()">
+        <div class="settings-item-left">
+          <div class="set-icon">&#9733;</div>
+          <div class="set-text">
+            <div class="set-title">Rate This App</div>
+            <div class="set-desc">Help us grow with your feedback</div>
+          </div>
+        </div>
+        <span class="settings-item-right">&#8250;</span>
+      </div>
+      <div class="settings-item" onclick="showAbout()">
+        <div class="settings-item-left">
+          <div class="set-icon">&#8505;</div>
+          <div class="set-text">
+            <div class="set-title">About</div>
+            <div class="set-desc">Kotha Khali Chha v1.0</div>
+          </div>
+        </div>
+        <span class="settings-item-right">&#8250;</span>
+      </div>
+      <div class="settings-item" onclick="showPrivacy()">
+        <div class="settings-item-left">
+          <div class="set-icon">&#128274;</div>
+          <div class="set-text">
+            <div class="set-title">Privacy Policy</div>
+            <div class="set-desc">How we handle your data</div>
+          </div>
+        </div>
+        <span class="settings-item-right">&#8250;</span>
+      </div>
+    </div>
+    
+    ${devMode ? `
+    <!-- Developer Settings -->
+    <div class="settings-group">
+      <div class="settings-group-title">Developer Settings</div>
+      <div class="dev-panel">
+        <h3>&#128736; Developer Options</h3>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:12px">
+          <div class="settings-item" onclick="devViewAllUsers()">
+            <div class="settings-item-left">
+              <div class="set-icon">&#128101;</div>
+              <div class="set-text">
+                <div class="set-title">Manage Users</div>
+                <div class="set-desc">${APP.users.length} registered users</div>
+              </div>
+            </div>
+            <span class="settings-item-right">&#8250;</span>
+          </div>
+          <div class="settings-item" onclick="devViewAllProps()">
+            <div class="settings-item-left">
+              <div class="set-icon">&#127970;</div>
+              <div class="set-text">
+                <div class="set-title">Manage Properties</div>
+                <div class="set-desc">${APP.properties.length} total listings</div>
+              </div>
+            </div>
+            <span class="settings-item-right">&#8250;</span>
+          </div>
+          <div class="settings-item" onclick="devViewAllMsgs()">
+            <div class="settings-item-left">
+              <div class="set-icon">&#128172;</div>
+              <div class="set-text">
+                <div class="set-title">View All Messages</div>
+                <div class="set-desc">${APP.messages.length} total messages</div>
+              </div>
+            </div>
+            <span class="settings-item-right">&#8250;</span>
+          </div>
+          <div class="settings-item" onclick="devExportData()">
+            <div class="settings-item-left">
+              <div class="set-icon">&#128190;</div>
+              <div class="set-text">
+                <div class="set-title">Export Data</div>
+                <div class="set-desc">Download all app data as JSON</div>
+              </div>
+            </div>
+            <span class="settings-item-right">&#8250;</span>
+          </div>
+          <div class="settings-item" onclick="devClearData()">
+            <div class="settings-item-left">
+              <div class="set-icon">&#9888;</div>
+              <div class="set-text">
+                <div class="set-title" style="color:var(--danger)">Reset All Data</div>
+                <div class="set-desc">Delete all data and start fresh</div>
+              </div>
+            </div>
+            <span class="settings-item-right">&#8250;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    ` : ''}
+    
+    <button class="btn btn-danger btn-full" onclick="logout()" style="margin-top:12px">
+      &#128682; Sign Out
+    </button>
+    
+    <p style="text-align:center;font-size:0.72rem;color:var(--text-muted);margin-top:24px;padding-bottom:20px">
+      Kotha Khali Chha !? v1.0<br>
+      Built for Kathmandu Valley<br>
+      &copy; 2024 All Rights Reserved
+    </p>
+  `;
+}
+
+function toggleTheme() {
+  const html = document.documentElement;
+  const newTheme = html.dataset.theme === 'dark' ? 'light' : 'dark';
+  html.dataset.theme = newTheme;
+  localStorage.setItem('kkc_theme', newTheme);
+  renderSettings();
+}
+
+function getFontSizeLabel() {
+  const sizes = { small: 'Small', medium: 'Medium', large: 'Large' };
+  const current = localStorage.getItem('kkc_fontsize') || 'medium';
+  return sizes[current];
+}
+
+function cycleFontSize() {
+  const order = ['small', 'medium', 'large'];
+  const current = localStorage.getItem('kkc_fontsize') || 'medium';
+  const next = order[(order.indexOf(current) + 1) % order.length];
+  localStorage.setItem('kkc_fontsize', next);
+  applyFontSize(next);
+  renderSettings();
+}
+
+function applyFontSize(size) {
+  const sizes = { small: '14px', medium: '16px', large: '18px' };
+  document.documentElement.style.fontSize = sizes[size] || '16px';
+}
+
+function getFontFamilyLabel() {
+  const families = { poppins: 'Poppins', playfair: 'Playfair Display', devanagari: 'Noto Sans Devanagari' };
+  const current = localStorage.getItem('kkc_fontfamily') || 'poppins';
+  return families[current];
+}
+
+function cycleFontFamily() {
+  const order = ['poppins', 'playfair', 'devanagari'];
+  const current = localStorage.getItem('kkc_fontfamily') || 'poppins';
+  const next = order[(order.indexOf(current) + 1) % order.length];
+  localStorage.setItem('kkc_fontfamily', next);
+  applyFontFamily(next);
+  renderSettings();
+}
+
+function applyFontFamily(family) {
+  const families = {
+    poppins: "'Poppins', sans-serif",
+    playfair: "'Playfair Display', serif",
+    devanagari: "'Noto Sans Devanagari', sans-serif"
+  };
+  document.body.style.fontFamily = families[family] || families.poppins;
+}
+
+function rateApp() {
+  let stars = 0;
+  showModal(`
+    <h3>Rate Kotha Khali Chha</h3>
+    <p>We'd love to hear your feedback!</p>
+    <div class="rating-stars" id="appRatingStars">
+      ${[1,2,3,4,5].map(i => `<span class="star" onclick="selectAppStar(${i})">&#9733;</span>`).join('')}
+    </div>
+    <div class="form-group" style="margin-top:12px">
+      <textarea id="appFeedback" rows="3" placeholder="Optional feedback..."></textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeModal()">Later</button>
+      <button class="btn btn-primary" onclick="submitAppRating()">Submit</button>
+    </div>
+  `);
+}
+
+function selectAppStar(n) {
+  document.querySelectorAll('#appRatingStars .star').forEach((s, i) => {
+    s.classList.toggle('active', i < n);
+  });
+  window._appRating = n;
+}
+
+function submitAppRating() {
+  if (!window._appRating) { showToast('Please select a rating', 'error'); return; }
+  closeModal();
+  showToast('Thank you for your rating!', 'success');
+}
+
+function showAbout() {
+  showModal(`
+    <h3>About Kotha Khali Chha</h3>
+    <div style="text-align:center;margin:16px 0">
+      <div style="font-size:3rem;margin-bottom:8px">&#127968;</div>
+      <p style="font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:var(--accent)">Kotha Khali Chha !?</p>
+      <p style="font-size:0.82rem;color:var(--text-muted)">Version 1.0</p>
+    </div>
+    <p style="font-size:0.85rem;color:var(--text-secondary);line-height:1.6;text-align:center">
+      The ultimate room finding solution for Kathmandu Valley.
+      Connect landlords with tenants seamlessly. Find your perfect room, flat, office, or building in Kathmandu, Bhaktapur, and Lalitpur.
+    </p>
+    <div class="divider"></div>
+    <p style="font-size:0.75rem;color:var(--text-muted);text-align:center">
+      Made with &#10084; for Nepal
+    </p>
+    <div style="margin-top:16px">
+      <button class="btn btn-secondary btn-full" onclick="closeModal()">Close</button>
+    </div>
+  `);
+}
+
+function showPrivacy() {
+  showModal(`
+    <h3>Privacy Policy</h3>
+    <div style="max-height:300px;overflow-y:auto;margin:12px 0;font-size:0.85rem;color:var(--text-secondary);line-height:1.6">
+      <p><strong>Data Collection:</strong> We collect phone number, email, and property information you provide.</p>
+      <br>
+      <p><strong>Data Usage:</strong> Your data is used solely for connecting landlords and tenants within this platform.</p>
+      <br>
+      <p><strong>Data Sharing:</strong> Contact information is shared only between matched landlords and tenants for property inquiries.</p>
+      <br>
+      <p><strong>Data Storage:</strong> Data is stored locally on your device. We recommend backing up important information.</p>
+      <br>
+      <p><strong>Security:</strong> OTP verification is used for authentication. Your data is not sold to third parties.</p>
+      <br>
+      <p><strong>Contact:</strong> For privacy concerns, contact the developer through the app's support feature.</p>
+    </div>
+    <button class="btn btn-secondary btn-full" onclick="closeModal()">Close</button>
+  `);
+}
+
+// ============================================================
+// DEVELOPER FUNCTIONS
+// ============================================================
+function devViewAllUsers() {
+  showModal(`
+    <h3>All Users (${APP.users.length})</h3>
+    <div style="max-height:300px;overflow-y:auto;margin-top:12px">
+      ${APP.users.length === 0 ? '<p style="color:var(--text-muted);text-align:center">No users</p>' :
+        APP.users.map(u => `
+          <div style="padding:10px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div style="font-weight:600;font-size:0.9rem">${u.name}</div>
+              <div style="font-size:0.75rem;color:var(--text-muted)">${u.phone} &middot; ${u.email}</div>
+            </div>
+            <div style="display:flex;gap:6px;align-items:center">
+              <span class="badge ${u.role==='developer'?'badge-accent':'badge-info'}">${u.role}</span>
+              ${u.role !== 'developer' ? `<button class="btn btn-sm btn-danger" onclick="devDeleteUser('${u.id}')">&#128465;</button>` : ''}
+            </div>
+          </div>
+        `).join('')
+      }
+    </div>
+    <button class="btn btn-secondary btn-full" style="margin-top:12px" onclick="closeModal()">Close</button>
+  `);
+}
+
+function devDeleteUser(id) {
+  APP.users = APP.users.filter(u => u.id !== id);
+  APP.properties = APP.properties.filter(p => p.landlordId !== id);
+  APP.messages = APP.messages.filter(m => m.fromId !== id && m.toId !== id);
+  saveData();
+  closeModal();
+  showToast('User and related data deleted', 'success');
+  devViewAllUsers();
+}
+
+function devViewAllProps() {
+  showModal(`
+    <h3>All Properties (${APP.properties.length})</h3>
+    <div style="max-height:300px;overflow-y:auto;margin-top:12px">
+      ${APP.properties.length === 0 ? '<p style="color:var(--text-muted);text-align:center">No properties</p>' :
+        APP.properties.map(p => `
+          <div style="padding:10px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div style="font-weight:600;font-size:0.9rem">${p.name} <span class="badge badge-info" style="margin-left:4px">${p.type}</span></div>
+              <div style="font-size:0.75rem;color:var(--text-muted)">${p.location}, ${p.district} &middot; ${formatNPR(p.rent)}</div>
+            </div>
+            <div style="display:flex;gap:6px;align-items:center">
+              <span class="badge ${p.status==='available'?'badge-success':'badge-danger'}">${p.status}</span>
+              <button class="btn btn-sm btn-outline" onclick="closeModal();viewProperty('${p.id}')">&#9998;</button>
+              <button class="btn btn-sm btn-danger" onclick="devDeleteProp('${p.id}')">&#128465;</button>
+            </div>
+          </div>
+        `).join('')
+      }
+    </div>
+    <button class="btn btn-secondary btn-full" style="margin-top:12px" onclick="closeModal()">Close</button>
+  `);
+}
+
+function devDeleteProp(id) {
+  APP.properties = APP.properties.filter(p => p.id !== id);
+  saveData();
+  closeModal();
+  showToast('Property deleted', 'success');
+  devViewAllProps();
+}
+
+function devViewAllMsgs() {
+  showModal(`
+    <h3>All Messages (${APP.messages.length})</h3>
+    <div style="max-height:300px;overflow-y:auto;margin-top:12px">
+      ${APP.messages.length === 0 ? '<p style="color:var(--text-muted);text-align:center">No messages</p>' :
+        APP.messages.map(m => `
+          <div style="padding:10px;border-bottom:1px solid var(--border)">
+            <div style="font-size:0.82rem"><strong>${m.fromName}</strong> &rarr; <strong>${m.toName}</strong></div>
+            <div style="font-size:0.82rem;color:var(--text-secondary);margin-top:4px">${m.text}</div>
+            <div style="font-size:0.7rem;color:var(--text-muted);margin-top:4px">${timeAgo(m.timestamp)} &middot; Re: ${m.propertyName || 'N/A'}</div>
+          </div>
+        `).join('')
+      }
+    </div>
+    <button class="btn btn-secondary btn-full" style="margin-top:12px" onclick="closeModal()">Close</button>
+  `);
+}
+
+function devExportData() {
+  const data = JSON.stringify({
+    users: APP.users,
+    properties: APP.properties,
+    messages: APP.messages,
+    notifications: APP.notifications,
+    exportDate: new Date().toISOString()
+  }, null, 2);
+  
+  const blob = new Blob([data], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'kotha-khali-chha-data.json';
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('Data exported!', 'success');
+}
+
+function devClearData() {
+  showModal(`
+    <h3>Reset All Data?</h3>
+    <p>This will delete all users, properties, and messages. This cannot be undone.</p>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-danger" onclick="confirmDevClear()">Reset Everything</button>
+    </div>
+  `);
+}
+
+function confirmDevClear() {
+  APP.properties = [];
+  APP.messages = [];
+  APP.users = [];
+  APP.notifications = [];
+  localStorage.removeItem('kkc_data');
+  closeModal();
+  showToast('All data has been reset', 'success');
+  seedSampleData();
+  navigateTo('dashboard');
+}
+
+// ============================================================
+// LOGOUT
+// ============================================================
+function logout() {
+  APP.user = null;
+  APP.role = null;
+  document.getElementById('app').classList.remove('active');
+  document.getElementById('devBadge').classList.add('hidden');
+  showScreen('splash');
+  showToast('Signed out successfully', 'info');
+  // Reset auth form
+  document.querySelectorAll('.otp-digit').forEach(d => d.value = '');
+  document.getElementById('authPhone').value = '';
+  document.getElementById('authEmail').value = '';
+  document.querySelectorAll('.role-option').forEach(r => r.classList.remove('selected'));
+  document.getElementById('authStep1').classList.remove('hidden');
+  document.getElementById('authStep2').classList.add('hidden');
+}
+
+// ============================================================
+// INIT
+// ============================================================
+function init() {
+  // Load theme
+  const savedTheme = localStorage.getItem('kkc_theme') || 'dark';
+  document.documentElement.dataset.theme = savedTheme;
+  
+  // Load font settings
+  const savedSize = localStorage.getItem('kkc_fontsize') || 'medium';
+  applyFontSize(savedSize);
+  const savedFamily = localStorage.getItem('kkc_fontfamily') || 'poppins';
+  applyFontFamily(savedFamily);
+  
+  // Load data
+  loadData();
+  
+  // Auto-hide splash after 4 seconds
+  setTimeout(() => {
+    if (document.getElementById('splash').classList.contains('active') && !APP.user) {
+      // Stay on splash until user acts
+    }
+  }, 4000);
+  
+  // Periodic notification check
+  setInterval(checkNotifications, 5000);
+}
+
+init();
+</script>
+</body>
+</html>
